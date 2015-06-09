@@ -7,10 +7,13 @@ public class Application {
 
 	public static void main(String[] args) {
 
-		final ApplicationContext context = new ClassPathXmlApplicationContext(
-				"application-config.xml");
-
-		for (int i = 0; i < 1000; i++) {
+		final ApplicationContext context = new ClassPathXmlApplicationContext("application-config.xml");
+		MyResourceReader myResourceReader = context.getBean("myResourceReader", MyResourceReader.class);
+		myResourceReader.print();
+		
+		
+		
+		/*for (int i = 0; i < 1000; i++) {
 			Thread t = new Thread(new Runnable() {
 
 				public void run() {
@@ -23,7 +26,7 @@ public class Application {
 				}
 			});
 			t.start();
-		}
+		}*/
 
 	}
 }

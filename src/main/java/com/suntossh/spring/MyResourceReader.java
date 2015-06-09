@@ -16,7 +16,9 @@ import org.springframework.stereotype.Component;
 public class MyResourceReader {
 	
 	@Autowired
-	@Value("http://timesofindia.indiatimes.com/")
+	//@Value("http://timesofindia.indiatimes.com/")
+	//@Value("classpath:Test.txt")
+	@Value("file:C:\\workspace_springdemo\\spring-bean-demo\\src\\main\\resources\\application-config.xml")
 	private Resource resource;
 	
 	public void print(){
@@ -25,7 +27,6 @@ public class MyResourceReader {
 			bufferedReader = new BufferedReader(new InputStreamReader(resource.getInputStream()));
 			for(String line= bufferedReader.readLine(); line != null; line = bufferedReader.readLine()){
 				System.out.println(line);
-				break;
 			}
 			
 		
